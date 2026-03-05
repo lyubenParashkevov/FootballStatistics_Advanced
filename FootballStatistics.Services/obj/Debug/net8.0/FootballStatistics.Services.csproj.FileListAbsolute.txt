@@ -17,3 +17,4 @@ C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Servi
 C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Services\obj\Debug\net8.0\refint\FootballStatistics.Services.dll
 C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Services\obj\Debug\net8.0\FootballStatistics.Services.pdb
 C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Services\obj\Debug\net8.0\ref\FootballStatistics.Services.dll
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Services\obj\Debug\net8.0\FootballStatistics.Services.sourcelink.json

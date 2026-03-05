@@ -15,3 +15,4 @@ C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Data\
 C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Data\bin\Debug\net8.0\FootballStatistics.Common.dll
 C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Data\bin\Debug\net8.0\FootballStatistics.Common.pdb
 C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Data\obj\Debug\net8.0\Football.391B8166.Up2Date
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Data\obj\Debug\net8.0\FootballStatistics.Data.sourcelink.json

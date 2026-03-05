@@ -13,3 +13,4 @@ C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Web.V
 C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Web.ViewModels\obj\Debug\net8.0\refint\FootballStatistics.Web.ViewModels.dll
 C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Web.ViewModels\obj\Debug\net8.0\FootballStatistics.Web.ViewModels.pdb
 C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Web.ViewModels\obj\Debug\net8.0\ref\FootballStatistics.Web.ViewModels.dll
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Web.ViewModels\obj\Debug\net8.0\FootballStatistics.Web.ViewModels.sourcelink.json

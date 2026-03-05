@@ -1,0 +1,11 @@
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Common\bin\Debug\net8.0\FootballStatistics.Common.deps.json
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Common\bin\Debug\net8.0\FootballStatistics.Common.dll
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Common\bin\Debug\net8.0\FootballStatistics.Common.pdb
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Common\obj\Debug\net8.0\FootballStatistics.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Common\obj\Debug\net8.0\FootballStatistics.Common.AssemblyInfoInputs.cache
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Common\obj\Debug\net8.0\FootballStatistics.Common.AssemblyInfo.cs
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Common\obj\Debug\net8.0\FootballStatistics.Common.csproj.CoreCompileInputs.cache
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Common\obj\Debug\net8.0\FootballStatistics.Common.dll
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Common\obj\Debug\net8.0\refint\FootballStatistics.Common.dll
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Common\obj\Debug\net8.0\FootballStatistics.Common.pdb
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Common\obj\Debug\net8.0\ref\FootballStatistics.Common.dll

@@ -1,0 +1,15 @@
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Web.ViewModels\obj\Debug\net8.0\FootballStatistics.Web.ViewModels.GeneratedMSBuildEditorConfig.editorconfig
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Web.ViewModels\obj\Debug\net8.0\FootballStatistics.Web.ViewModels.AssemblyInfoInputs.cache
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Web.ViewModels\obj\Debug\net8.0\FootballStatistics.Web.ViewModels.AssemblyInfo.cs
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Web.ViewModels\obj\Debug\net8.0\FootballStatistics.Web.ViewModels.csproj.CoreCompileInputs.cache
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Web.ViewModels\obj\Debug\net8.0\FootballStatistics.Web.ViewModels.csproj.AssemblyReference.cache
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Web.ViewModels\bin\Debug\net8.0\FootballStatistics.Web.ViewModels.deps.json
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Web.ViewModels\bin\Debug\net8.0\FootballStatistics.Web.ViewModels.dll
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Web.ViewModels\bin\Debug\net8.0\FootballStatistics.Web.ViewModels.pdb
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Web.ViewModels\bin\Debug\net8.0\FootballStatistics.Common.dll
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Web.ViewModels\bin\Debug\net8.0\FootballStatistics.Common.pdb
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Web.ViewModels\obj\Debug\net8.0\Football.707D7432.Up2Date
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Web.ViewModels\obj\Debug\net8.0\FootballStatistics.Web.ViewModels.dll
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Web.ViewModels\obj\Debug\net8.0\refint\FootballStatistics.Web.ViewModels.dll
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Web.ViewModels\obj\Debug\net8.0\FootballStatistics.Web.ViewModels.pdb
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Web.ViewModels\obj\Debug\net8.0\ref\FootballStatistics.Web.ViewModels.dll

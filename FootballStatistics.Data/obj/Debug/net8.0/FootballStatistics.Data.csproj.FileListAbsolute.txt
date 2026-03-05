@@ -1,0 +1,17 @@
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Data\bin\Debug\net8.0\FootballStatistics.Data.deps.json
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Data\bin\Debug\net8.0\FootballStatistics.Data.runtimeconfig.json
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Data\bin\Debug\net8.0\FootballStatistics.Data.dll
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Data\bin\Debug\net8.0\FootballStatistics.Data.pdb
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Data\obj\Debug\net8.0\FootballStatistics.Data.csproj.AssemblyReference.cache
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Data\obj\Debug\net8.0\FootballStatistics.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Data\obj\Debug\net8.0\FootballStatistics.Data.AssemblyInfoInputs.cache
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Data\obj\Debug\net8.0\FootballStatistics.Data.AssemblyInfo.cs
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Data\obj\Debug\net8.0\FootballStatistics.Data.csproj.CoreCompileInputs.cache
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Data\obj\Debug\net8.0\FootballStatistics.Data.dll
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Data\obj\Debug\net8.0\refint\FootballStatistics.Data.dll
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Data\obj\Debug\net8.0\FootballStatistics.Data.pdb
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Data\obj\Debug\net8.0\FootballStatistics.Data.genruntimeconfig.cache
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Data\obj\Debug\net8.0\ref\FootballStatistics.Data.dll
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Data\bin\Debug\net8.0\FootballStatistics.Common.dll
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Data\bin\Debug\net8.0\FootballStatistics.Common.pdb
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Data\obj\Debug\net8.0\Football.391B8166.Up2Date

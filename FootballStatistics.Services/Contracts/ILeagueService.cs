@@ -1,4 +1,5 @@
 ﻿using FootballStatistics.ViewModels.League;
+using FootballStatistics.Web.ViewModels.ViewModels.League;
 
 namespace FootballStatistics.Services.Contracts
 {
@@ -11,5 +12,7 @@ namespace FootballStatistics.Services.Contracts
         Task<LeagueFormModel?> GetEditModelAsync(int id);
         Task<bool> UpdateAsync(int id, LeagueFormModel model);
         Task<bool> DeleteAsync(int id);
+
+        Task<LeagueStandingsModel> GetStandingsAsync(int leagueId);
     }
 }

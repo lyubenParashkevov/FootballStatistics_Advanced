@@ -1,0 +1,53 @@
+﻿@using FootballStatistics.ViewModels.Team;
+
+@model TeamFormModel
+
+@{
+    ViewData["Title"] = "Add Team";
+}
+
+<h2 class="text-center">@ViewData["Title"]</h2>
+<hr />
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <form asp-action="Create" method="post">
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="GoalsScored" class="form-label"></label>
+                <input asp-for="GoalsScored" class="form-control" />
+                <span asp-validation-for="GoalsScored" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="GoalsConceded" class="form-label"></label>
+                <input asp-for="GoalsConceded" class="form-control" />
+                <span asp-validation-for="GoalsConceded" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="LeagueId" class="form-label">League</label>
+                <select asp-for="LeagueId" class="form-select">
+                    <option value="">-- Select league --</option>
+                    @foreach (var league in Model.Leagues)
+                    {
+                        <option value="@league.Id">@league.Name</option>
+                    }
+                </select>
+                <span asp-validation-for="LeagueId" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save</button>
+            <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

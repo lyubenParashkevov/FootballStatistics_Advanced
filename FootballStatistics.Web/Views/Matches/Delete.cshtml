@@ -1,0 +1,29 @@
+﻿@using FootballStatistics.ViewModels.Match
+@model MatchFormModel
+
+@{
+    ViewData["Title"] = "Delete Match";
+}
+
+<h2 class="text-center text-danger">@ViewData["Title"]</h2>
+<hr />
+
+<div class="alert alert-warning">
+    Are you sure you want to delete this match?
+</div>
+
+<ul class="list-group mb-3">
+    <li class="list-group-item">
+        <strong>Date:</strong> @Model.MatchDate.ToString("dd.MM.yyyy")
+    </li>
+    <li class="list-group-item">
+        <strong>Score:</strong> @Model.HomeGoals - @Model.AwayGoals
+    </li>
+</ul>
+
+<form asp-action="DeleteConfirmed"
+      asp-route-id="@ViewContext.RouteData.Values["id"]"
+      method="post">
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

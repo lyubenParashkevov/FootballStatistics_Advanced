@@ -1,0 +1,50 @@
+﻿@model FootballStatistics.Web.ViewModels.ViewModels.League.LeagueStandingsModel
+
+@{
+    ViewData["Title"] = $"{Model.LeagueName} - Standings";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Team</th>
+            <th class="text-center">P</th>
+            <th class="text-center">W</th>
+            <th class="text-center">D</th>
+            <th class="text-center">L</th>
+            <th class="text-center">GF</th>
+            <th class="text-center">GA</th>
+            <th class="text-center">GD</th>
+            <th class="text-center">Pts</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int pos = 1;
+        }
+
+        @foreach (var row in Model.Table)
+        {
+            <tr>
+                <td>@pos</td>
+                <td>
+                    <a asp-controller="Teams" asp-action="Details" asp-route-id="@row.TeamId">
+                        @row.TeamName
+                    </a>
+                </td>
+                <td class="text-center">@row.Played</td>
+                <td class="text-center">@row.Wins</td>
+                <td class="text-center">@row.Draws</td>
+                <td class="text-center">@row.Losses</td>
+                <td class="text-center">@row.GoalsFor</td>
+                <td class="text-center">@row.GoalsAgainst</td>
+                <td class="text-center">@row.GoalDifference</td>
+                <td class="text-center fw-bold">@row.Points</td>
+            </tr>
+            pos++;
+        }
+    </tbody>
+</table>

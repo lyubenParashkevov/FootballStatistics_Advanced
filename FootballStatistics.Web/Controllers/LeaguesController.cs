@@ -124,5 +124,12 @@ namespace FootballStatistics.Controllers
                 return View("Delete", model);
             }
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Standings(int id)
+        {
+            var model = await leagueService.GetStandingsAsync(id);
+            return View(model);
+        }
     }
 }

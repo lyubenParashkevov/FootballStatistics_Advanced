@@ -22,5 +22,19 @@
         // Match
         public const int MatchGoalsMinValue = 0;
         public const int MatchGoalsMaxValue = 30;
+
+        // Player
+
+        public const int PlayerNameMinLength = 2;
+        public const int PlayerNameMaxLength = 100;
+
+        public const int PlayerPositionMinLength = 1;
+        public const int PlayerPositionMaxLength = 25;
+
+        public const int PlayerMinAge = 16;
+        public const int PlayerMaxAge = 50;
+
+        public const int PlayerMinGoalsScored = 0;
+        public const int PlayerMaxGoalsScored = 1000;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using FootballStatistics.Data.Infrastructure.Models;
+using FootballStatistics.Data.Models;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using static FootballStatistics.Common.ValidationConstants;
@@ -33,5 +34,7 @@ namespace FootballStatistics.Infrastructure.Models
         public virtual ICollection<Match> HomeMatches { get; set; } = new HashSet<Match>();
 
         public virtual ICollection<Match> AwayMatches { get; set; } = new HashSet<Match>();
+
+        public virtual ICollection<Player> Players { get; set; } = new HashSet<Player>();
     }
 }

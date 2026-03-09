@@ -9,3 +9,4 @@ C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Commo
 C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Common\obj\Debug\net8.0\refint\FootballStatistics.Common.dll
 C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Common\obj\Debug\net8.0\FootballStatistics.Common.pdb
 C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Common\obj\Debug\net8.0\ref\FootballStatistics.Common.dll
+C:\SoftUni\09_ASP.NET_Fundamentals\Final_Course_Project\FootballStatistics.Common\obj\Debug\net8.0\FootballStatistics.Common.sourcelink.json

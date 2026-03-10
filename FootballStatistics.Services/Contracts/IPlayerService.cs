@@ -20,5 +20,6 @@ namespace FootballStatistics.Services.Contracts
         Task<bool> UpdateAsync(int id, PlayerFormModel model);
 
         Task<bool> DeleteAsync(int id);
+        Task<PlayerFormModel> GetCreateModelAsync();
     }
 }

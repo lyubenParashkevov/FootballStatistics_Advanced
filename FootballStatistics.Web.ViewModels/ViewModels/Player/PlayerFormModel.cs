@@ -24,6 +24,7 @@ namespace FootballStatistics.Web.ViewModels.ViewModels.Player
 
         public int TeamId { get; set; }
 
+        
         public IEnumerable<TeamDropdownModel>? Teams { get; set; }
     }
 }

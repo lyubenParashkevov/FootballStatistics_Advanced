@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FootballStatistics.Web.ViewModels")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1dfaa85fbdabe4973e72662f88b3df70eac25aed")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6fb1732ac15147a7bf5abde4fa402c8d54f87e64")]
 [assembly: System.Reflection.AssemblyProductAttribute("FootballStatistics.Web.ViewModels")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FootballStatistics.Web.ViewModels")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

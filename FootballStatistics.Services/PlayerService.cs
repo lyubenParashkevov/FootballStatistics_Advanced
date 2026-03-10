@@ -136,5 +136,13 @@ namespace FootballStatistics.Services
                 })
                 .ToListAsync();
         }
+
+        public async Task<PlayerFormModel> GetCreateModelAsync()
+        {
+            return new PlayerFormModel
+            {
+                Teams = await GetTeamsDropdownAsync()
+            };
+        }
     }
 }

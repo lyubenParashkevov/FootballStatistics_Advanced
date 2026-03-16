@@ -23,6 +23,8 @@ namespace FootballStatistics.Web
             builder.Services.AddScoped<ILeagueService, LeagueService>();
 
             builder.Services.AddScoped<IMatchService, MatchService>();
+            builder.Services.AddScoped<IPlayerService, PlayerService>();
+            builder.Services.AddScoped<IStadiumService, StadiumService>();
 
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 

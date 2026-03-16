@@ -36,5 +36,15 @@
 
         public const int PlayerMinGoalsScored = 0;
         public const int PlayerMaxGoalsScored = 1000;
+
+        //Stadium
+        public const int StadiumNameMinLength = 2;
+        public const int StadiumNameMaxLength = 100;
+
+        public const int StadiumCityMinLength = 2;
+        public const int StadiumCityMaxLength = 100;
+
+        public const int StadiumCapacityMinValue = 10000;
+        public const int StadiumCapacityMaxValue = 130000;
     }
 }

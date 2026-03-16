@@ -17,6 +17,7 @@ namespace FootballStatistics.Data.Infrastructure.Database
         public virtual DbSet<Team> Teams { get; set; } = null!;
         public virtual DbSet<Match> Matches { get; set; } = null!;
         public virtual DbSet<Player> Players { get; set; } = null!;
+        public virtual DbSet<Stadium> Stadiums { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

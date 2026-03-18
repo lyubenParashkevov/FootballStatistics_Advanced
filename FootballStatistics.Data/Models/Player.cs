@@ -1,7 +1,9 @@
-﻿using FootballStatistics.Infrastructure.Models;
+﻿using FootballStatistics.Common;
+using FootballStatistics.Infrastructure.Models;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using static FootballStatistics.Common.ValidationConstants;
+
 
 
 namespace FootballStatistics.Data.Models
@@ -18,9 +20,7 @@ namespace FootballStatistics.Data.Models
         [Range(PlayerMinAge, PlayerMaxAge)]
         public int Age { get; set; }
 
-        [Required]
-        [StringLength(PlayerPositionMaxLength, MinimumLength = PlayerPositionMinLength)]
-        public string Position { get; set; } = null!;
+        public PlayerPosition Position { get; set; }
 
         [Range(PlayerMinGoalsScored, PlayerMaxGoalsScored)]
         public int GoalsScored { get; set; }

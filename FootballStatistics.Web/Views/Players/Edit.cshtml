@@ -1,4 +1,6 @@
-﻿@model FootballStatistics.Web.ViewModels.ViewModels.Player.PlayerFormModel
+﻿@using FootballStatistics.Common
+@model FootballStatistics.Web.ViewModels.ViewModels.Player.PlayerFormModel
+@using static FootballStatistics.Common.PlayerPosition;
 
 @{
     ViewData["Title"] = "Edit Player";
@@ -23,7 +25,11 @@
 
             <div class="mb-3">
                 <label asp-for="Position" class="form-label"></label>
-                <input asp-for="Position" class="form-control" />
+                <select asp-for="Position"
+                        asp-items="Html.GetEnumSelectList<PlayerPosition>()"
+                        class="form-select">
+                </select>
+                <span asp-validation-for="Position" class="text-danger"></span>
             </div>
 
             <div class="mb-3">

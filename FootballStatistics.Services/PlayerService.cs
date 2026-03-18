@@ -27,7 +27,7 @@ namespace FootballStatistics.Services
                     Id = p.Id,
                     Name = p.Name,
                     Age = p.Age,
-                    Position = p.Position,
+                    Position = p.Position.ToString(),
                     GoalsScored = p.GoalsScored,
                     TeamName = p.Team.Name
                 })
@@ -43,7 +43,8 @@ namespace FootballStatistics.Services
                 Age = model.Age,
                 Position = model.Position,
                 GoalsScored = model.GoalsScored,
-                TeamId = model.TeamId
+                TeamId = model.TeamId,
+               
             };
 
             await dbContext.Players.AddAsync(player);
@@ -60,7 +61,7 @@ namespace FootballStatistics.Services
                     Id = p.Id,
                     Name = p.Name,
                     Age = p.Age,
-                    Position = p.Position,
+                    Position = p.Position.ToString(),
                     GoalsScored = p.GoalsScored,
                     TeamName = p.Team.Name
                 })

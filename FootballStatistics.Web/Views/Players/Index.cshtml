@@ -1,0 +1,40 @@
+﻿@model IEnumerable<FootballStatistics.Web.ViewModels.ViewModels.Player.PlayerListItemModel>
+
+@{
+    ViewData["Title"] = "Players";
+}
+
+<h2 class="text-center">@ViewData["Title"]</h2>
+<hr />
+
+<a asp-action="Create" class="btn btn-primary mb-3">Add Player</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Position</th>
+            <th>Goals</th>
+            <th>Team</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var player in Model)
+        {
+            <tr>
+                <td>@player.Name</td>
+                <td>@player.Age</td>
+                <td>@player.Position</td>
+                <td>@player.GoalsScored</td>
+                <td>@player.TeamName</td>
+
+                <td>
+                    <a asp-action="Details" asp-route-id="@player.Id" class="btn btn-info btn-sm">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

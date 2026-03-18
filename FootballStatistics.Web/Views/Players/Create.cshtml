@@ -1,0 +1,59 @@
+﻿@model FootballStatistics.Web.ViewModels.ViewModels.Player.PlayerFormModel
+
+@{
+    ViewData["Title"] = "Create Player";
+}
+
+<h2 class="text-center">@ViewData["Title"]</h2>
+<hr />
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <form asp-action="Create" method="post">
+
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Age" class="form-label"></label>
+                <input asp-for="Age" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Position" class="form-label"></label>
+                <input asp-for="Position" class="form-control" />
+                <span asp-validation-for="Position" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="GoalsScored" class="form-label"></label>
+                <input asp-for="GoalsScored" class="form-control" />
+                <span asp-validation-for="GoalsScored" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="TeamId" class="form-label">Team</label>
+                <select asp-for="TeamId" class="form-select">
+                    <option value="">-- Select team --</option>
+                    @foreach (var team in Model.Teams)
+                    {
+                        <option value="@team.Id">@team.Name</option>
+                    }
+                </select>
+                <span asp-validation-for="TeamId" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Create</button>
+            <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

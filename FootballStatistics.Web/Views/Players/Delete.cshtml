@@ -1,0 +1,19 @@
+﻿@model FootballStatistics.Web.ViewModels.ViewModels.Player.PlayerDetailsViewModel
+
+@{
+    ViewData["Title"] = "Delete Player";
+}
+
+<h2 class="text-center">Delete Player</h2>
+<hr />
+
+<h4 class="text-center">Are you sure you want to delete @Model.Name?</h4>
+
+<div class="text-center mt-3">
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="Id" />
+
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>

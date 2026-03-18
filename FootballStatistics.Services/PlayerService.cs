@@ -80,6 +80,7 @@ namespace FootballStatistics.Services
 
             return new PlayerFormModel
             {
+                Id = player.Id,
                 Name = player.Name,
                 Age = player.Age,
                 Position = player.Position,

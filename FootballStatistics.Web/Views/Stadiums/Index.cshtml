@@ -1,0 +1,33 @@
+﻿@model IEnumerable<FootballStatistics.Web.ViewModels.ViewModels.Stadium.StadiumListItemModel>
+
+@{
+    ViewData["Title"] = "Stadiums";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<a asp-action="Create" class="btn btn-primary mb-3">Add Stadium</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>City</th>
+            <th>Capacity</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var stadium in Model)
+        {
+            <tr>
+                <td>@stadium.Name</td>
+                <td>@stadium.City</td>
+                <td>@stadium.Capacity</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@stadium.Id" class="btn btn-info btn-sm">Details</a>                
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -15,5 +15,6 @@ namespace FootballStatistics.Web.ViewModels.ViewModels.Stadium
         public string City { get; set; } = null!;
 
         public int Capacity { get; set; }
+        public string? TeamName { get; set; }
     }
 }

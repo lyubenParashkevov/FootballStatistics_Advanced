@@ -8,5 +8,7 @@
         public int Points { get; set; }
         public int GoalsScored { get; set; }
         public int GoalsConceded { get; set; }
+
+        public string? StadiumName { get; set; }    
     }
 }

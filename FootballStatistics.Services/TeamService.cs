@@ -160,7 +160,9 @@ namespace FootballStatistics.Services
                     LeagueName = t.League.Name,
                     Points = t.Points,
                     GoalsScored = t.GoalsScored,
-                    GoalsConceded = t.GoalsConceded
+                    GoalsConceded = t.GoalsConceded,
+                    StadiumName = t.Stadium != null ? t.Stadium.Name : null
+
                 })
                 .FirstOrDefaultAsync();
         }

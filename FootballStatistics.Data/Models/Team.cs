@@ -31,9 +31,9 @@ namespace FootballStatistics.Infrastructure.Models
         public virtual League League { get; set; } = null!;
 
         [ForeignKey(nameof(Stadium))]
-        public int StadiumId { get; set; }
+        public int? StadiumId { get; set; }
 
-        public virtual Stadium Stadium { get; set; } = null!;
+        public virtual Stadium? Stadium { get; set; } = null!;
 
 
         public virtual ICollection<Match> HomeMatches { get; set; } = new HashSet<Match>();

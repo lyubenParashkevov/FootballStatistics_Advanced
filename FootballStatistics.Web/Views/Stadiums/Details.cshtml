@@ -1,0 +1,23 @@
+﻿@model FootballStatistics.Web.ViewModels.ViewModels.Stadium.StadiumDetailsViewModel
+
+@{
+    ViewData["Title"] = "Stadium Details";
+}
+
+<h2>@Model.Name</h2>
+
+<li class="list-group-item"><strong>Name:</strong> @Model.Name</li>
+<li class="list-group-item"><strong>City:</strong> @Model.City</li>
+<li class="list-group-item"><strong>Capacity:</strong> @Model.Capacity</li>
+
+</ul>
+
+<div class="card p-3">
+    <p><strong>City:</strong> @Model.City</p>
+    <p><strong>Capacity:</strong> @Model.Capacity</p>
+    <p><strong>Team:</strong> @(Model.TeamName ?? "No team assigned")</p>
+</div>
+
+<a asp-action="Index"  class="btn btn-secondary btn-sm">Back</a>
+<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning btn-sm">Edit</a>
+<a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger btn-sm">Delete</a>

@@ -78,7 +78,11 @@ namespace FootballStatistics.Services
                         Id = s.Id,
                         Name = s.Name,
                         City = s.City,
-                        Capacity = s.Capacity
+                        Capacity = s.Capacity,
+                        TeamName = s.Teams
+                             .Select(t => t.Name)
+                             .FirstOrDefault()
+
                     })
                     .FirstOrDefaultAsync();
             }

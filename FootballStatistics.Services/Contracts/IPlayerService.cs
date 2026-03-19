@@ -1,4 +1,5 @@
-﻿using FootballStatistics.Web.ViewModels.ViewModels.Player;
+﻿using FootballStatistics.Common;
+using FootballStatistics.Web.ViewModels.ViewModels.Player;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace FootballStatistics.Services.Contracts
 {
     public interface IPlayerService
     {
-        Task<IEnumerable<PlayerListItemModel>> GetAllAsync();
+        Task<IEnumerable<PlayerListItemModel>> GetAllAsync(string? searchTerm = null, PlayerPosition? position = null);
 
         Task CreateAsync(PlayerFormModel model);
 
@@ -21,5 +22,6 @@ namespace FootballStatistics.Services.Contracts
 
         Task<bool> DeleteAsync(int id);
         Task<PlayerFormModel> GetCreateModelAsync();
+        
     }
 }

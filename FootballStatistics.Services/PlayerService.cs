@@ -1,5 +1,6 @@
 ﻿
 
+using FootballStatistics.Common;
 using FootballStatistics.Data.Infrastructure.Database;
 using FootballStatistics.Data.Models;
 using FootballStatistics.Services.Contracts;
@@ -18,10 +19,23 @@ namespace FootballStatistics.Services
             this.dbContext = dbContext;
         }
 
-        public async Task<IEnumerable<PlayerListItemModel>> GetAllAsync()
+        public async Task<IEnumerable<PlayerListItemModel>> GetAllAsync(string? searchTerm = null, PlayerPosition? position = null)
         {
-            return await dbContext.Players
+            var query = dbContext.Players
                 .AsNoTracking()
+                .AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(searchTerm))
+            {
+                query = query.Where(p => p.Name.Contains(searchTerm));
+            }
+
+            if (position.HasValue)
+            {
+                query = query.Where(p => p.Position == position.Value);
+            }
+
+            return await query
                 .Select(p => new PlayerListItemModel
                 {
                     Id = p.Id,
@@ -31,7 +45,6 @@ namespace FootballStatistics.Services
                     GoalsScored = p.GoalsScored,
                     TeamName = p.Team.Name
                 })
-                .OrderBy(p => p.Name)
                 .ToListAsync();
         }
 

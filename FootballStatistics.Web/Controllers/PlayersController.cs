@@ -1,4 +1,5 @@
-﻿using FootballStatistics.Services.Contracts;
+﻿using FootballStatistics.Common;
+using FootballStatistics.Services.Contracts;
 using FootballStatistics.Web.ViewModels.ViewModels.Player;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,9 +15,13 @@ namespace FootballStatistics.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string? searchTerm, PlayerPosition? position)
         {
-            var model = await playerService.GetAllAsync();
+            var model = await playerService.GetAllAsync(searchTerm, position);
+
+            ViewBag.SearchTerm = searchTerm;
+            ViewBag.SelectedPosition = position;
+
             return View(model);
         }
 

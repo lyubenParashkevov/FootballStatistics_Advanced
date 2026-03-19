@@ -1,4 +1,7 @@
-﻿@model IEnumerable<FootballStatistics.Web.ViewModels.ViewModels.Player.PlayerListItemModel>
+﻿@using FootballStatistics.Common
+@using Microsoft.AspNetCore.Mvc.Rendering
+
+@model IEnumerable<FootballStatistics.Web.ViewModels.ViewModels.Player.PlayerListItemModel>
 
 @{
     ViewData["Title"] = "Players";
@@ -6,6 +9,30 @@
 
 <h2 class="text-center">@ViewData["Title"]</h2>
 <hr />
+
+<form asp-action="Index" method="get" class="mb-3">
+    <div class="row">
+        <div class="col-md-4">
+            <input type="text"
+                   name="searchTerm"
+                   value="@ViewBag.SearchTerm"
+                   class="form-control"
+                   placeholder="Search by player name..." />
+        </div>
+
+        <div class="col-md-3">
+            <select name="position" class="form-select"
+                    asp-items="Html.GetEnumSelectList<PlayerPosition>()">
+                <option value="">-- All positions --</option>
+            </select>
+        </div>
+
+        <div class="col-md-3">
+            <button type="submit" class="btn btn-primary">Search</button>
+            <a asp-action="Index" class="btn btn-secondary">Clear</a>
+        </div>
+    </div>
+</form>
 
 <a asp-action="Create" class="btn btn-primary mb-3">Add Player</a>
 

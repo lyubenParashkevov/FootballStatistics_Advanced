@@ -15,13 +15,9 @@ namespace FootballStatistics.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Index(string? searchTerm, PlayerPosition? position)
+        public async Task<IActionResult> Index(string? searchTerm, PlayerPosition? position, int page = 1)
         {
-            var model = await playerService.GetAllAsync(searchTerm, position);
-
-            ViewBag.SearchTerm = searchTerm;
-            ViewBag.SelectedPosition = position;
-
+            var model = await playerService.GetAllAsync(searchTerm, position, page);
             return View(model);
         }
 

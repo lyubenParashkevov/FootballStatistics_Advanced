@@ -10,7 +10,8 @@ namespace FootballStatistics.Services.Contracts
 {
     public interface IPlayerService
     {
-        Task<IEnumerable<PlayerListItemModel>> GetAllAsync(string? searchTerm = null, PlayerPosition? position = null);
+        Task<PlayerIndexViewModel> GetAllAsync(string? searchTerm = null, PlayerPosition? position = null,
+                    int page = 1, int pageSize = 5);
 
         Task CreateAsync(PlayerFormModel model);
 

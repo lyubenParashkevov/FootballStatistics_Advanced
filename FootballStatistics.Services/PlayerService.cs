@@ -19,8 +19,14 @@ namespace FootballStatistics.Services
             this.dbContext = dbContext;
         }
 
-        public async Task<IEnumerable<PlayerListItemModel>> GetAllAsync(string? searchTerm = null, PlayerPosition? position = null)
+        public async Task<PlayerIndexViewModel> GetAllAsync(string? searchTerm = null, PlayerPosition? position = null,
+                 int page = 1, int pageSize = 5)
         {
+            if (page < 1)
+            {
+                page = 1;
+            }
+
             var query = dbContext.Players
                 .AsNoTracking()
                 .AsQueryable();
@@ -35,7 +41,12 @@ namespace FootballStatistics.Services
                 query = query.Where(p => p.Position == position.Value);
             }
 
-            return await query
+            int totalPlayers = await query.CountAsync();
+
+            var players = await query
+                .OrderBy(p => p.Name)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
                 .Select(p => new PlayerListItemModel
                 {
                     Id = p.Id,
@@ -46,6 +57,22 @@ namespace FootballStatistics.Services
                     TeamName = p.Team.Name
                 })
                 .ToListAsync();
+
+            int totalPages = (int)Math.Ceiling((double)totalPlayers / pageSize);
+
+            if (totalPages == 0)
+            {
+                totalPages = 1;
+            }
+
+            return new PlayerIndexViewModel
+            {
+                Players = players,
+                SearchTerm = searchTerm,
+                Position = position,
+                CurrentPage = page,
+                TotalPages = totalPages
+            };
         }
 
         public async Task CreateAsync(PlayerFormModel model)
@@ -57,7 +84,7 @@ namespace FootballStatistics.Services
                 Position = model.Position,
                 GoalsScored = model.GoalsScored,
                 TeamId = model.TeamId,
-               
+
             };
 
             await dbContext.Players.AddAsync(player);

@@ -6,7 +6,10 @@
 
 <h2>@ViewData["Title"]</h2>
 
-<a asp-action="Create" class="btn btn-primary mb-3">Add Stadium</a>
+@if (User.IsInRole("Administrator"))
+{
+    <a asp-action="Create" class="btn btn-primary">Add Stadium</a>
+}
 
 <table class="table table-striped">
     <thead>

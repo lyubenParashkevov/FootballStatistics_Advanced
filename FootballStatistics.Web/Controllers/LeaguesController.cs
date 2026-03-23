@@ -1,4 +1,5 @@
-﻿using FootballStatistics.Services.Contracts;
+﻿using FootballStatistics.Common;
+using FootballStatistics.Services.Contracts;
 using FootballStatistics.ViewModels.League;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -21,13 +22,15 @@ namespace FootballStatistics.Controllers
             var leagues = await leagueService.GetAllAsync();
             return View(leagues);
         }
-   
+
+        [Authorize(Roles = ApplicationRoles.Administrator)]
         [HttpGet]
         public IActionResult Create()
         {
             return View(new LeagueFormModel());
         }
 
+        [Authorize(Roles = ApplicationRoles.Administrator)]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(LeagueFormModel model)
@@ -50,7 +53,7 @@ namespace FootballStatistics.Controllers
             return View(model);
         }
 
-        [Authorize]
+        [Authorize(Roles = ApplicationRoles.Administrator)]
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
@@ -63,7 +66,7 @@ namespace FootballStatistics.Controllers
             return View(model);
         }
 
-        [Authorize]
+        [Authorize(Roles = ApplicationRoles.Administrator)]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, LeagueFormModel model)
@@ -82,7 +85,7 @@ namespace FootballStatistics.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        [Authorize]
+        [Authorize(Roles = ApplicationRoles.Administrator)]
         [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
@@ -95,7 +98,7 @@ namespace FootballStatistics.Controllers
             return View(model);
         }
 
-        [Authorize]
+        [Authorize(Roles = ApplicationRoles.Administrator)]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

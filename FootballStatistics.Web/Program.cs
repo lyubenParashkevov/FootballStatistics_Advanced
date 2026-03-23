@@ -34,7 +34,11 @@ namespace FootballStatistics.Web
             {
                 ConfigureIdentityOptions(options);
             })
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<FootballStatisticsDbContext>();
+
+           
+
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();

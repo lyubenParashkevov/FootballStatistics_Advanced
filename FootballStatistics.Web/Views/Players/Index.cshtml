@@ -45,8 +45,10 @@
     </div>
 </form>
 
-<a asp-action="Create" class="btn btn-primary mb-3">Add Player</a>
-
+@if (User.IsInRole("Administrator"))
+{
+    <a asp-action="Create" class="btn btn-primary">Add Player</a>
+}
 <table class="table table-striped">
     <thead>
         <tr>

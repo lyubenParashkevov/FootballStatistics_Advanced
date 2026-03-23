@@ -1,7 +1,8 @@
-﻿using FootballStatistics.Services.Contracts;
-using FootballStatistics.Data.Infrastructure.Database;
+﻿using FootballStatistics.Data.Infrastructure.Database;
 using FootballStatistics.Infrastructure.Models;
+using FootballStatistics.Services.Contracts;
 using FootballStatistics.ViewModels.Match;
+using FootballStatistics.Web.ViewModels.ViewModels.Match;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
@@ -31,6 +32,26 @@ namespace FootballStatistics.Services
                     MatchDate = m.MatchDate
                 })
                 .ToListAsync();
+        }
+
+        public async Task<MatchDetailsViewModel?> GetDetailsAsync(int id)
+        {
+            return await dbContext.Matches
+                .AsNoTracking()
+                .Where(m => m.Id == id)
+                .Select(m => new MatchDetailsViewModel
+                {
+                    Id = m.Id,
+                    HomeTeamName = m.HomeTeam.Name,
+                    AwayTeamName = m.AwayTeam.Name,
+                    HomeGoals = m.HomeGoals,
+                    AwayGoals = m.AwayGoals,
+                    MatchDate = m.MatchDate,
+                    Stadium = m.HomeTeam.Stadium != null
+                        ? m.HomeTeam.Stadium.Name
+                        : "No stadium assigned"
+                })
+                .FirstOrDefaultAsync();
         }
 
         public async Task<MatchFormModel> GetCreateModelAsync()
@@ -144,5 +165,7 @@ namespace FootballStatistics.Services
             await dbContext.SaveChangesAsync();
             return true;
         }
+
+
     }
 }

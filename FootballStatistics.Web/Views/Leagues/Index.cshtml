@@ -9,7 +9,10 @@
 <hr />
 
 <div class="mb-3">
-    <a class="btn btn-primary" asp-action="Create">Add League</a>
+    @if (User.IsInRole("Administrator"))
+    {
+        <a asp-action="Create" class="btn btn-primary">Add League</a>
+    }
 </div>
 
 <table class="table table-striped">

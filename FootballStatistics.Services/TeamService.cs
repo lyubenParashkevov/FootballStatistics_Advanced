@@ -17,21 +17,44 @@ namespace FootballStatistics.Services
             this.dbContext = dbContext;
         }
 
+
         public async Task<IEnumerable<TeamListItemModel>> GetAllAsync()
         {
-            return await dbContext.Teams
+            var teams = await dbContext.Teams
                 .AsNoTracking()
-                .Select(t => new TeamListItemModel
-                {
-                    Id = t.Id,
-                    Name = t.Name,
-                    Points = t.Points,
-                    GoalsScored = t.GoalsScored,
-                    GoalsConceded = t.GoalsConceded,
-                    LeagueName = t.League.Name
-                })
-                .OrderByDescending(t => t.Points)
+                .Include(t => t.League)
+                .Include(t => t.HomeMatches)
+                .Include(t => t.AwayMatches)
                 .ToListAsync();
+
+            return teams.Select(team =>
+            {
+                int goalsScored = team.HomeMatches.Sum(m => m.HomeGoals)
+                                 + team.AwayMatches.Sum(m => m.AwayGoals);
+
+                int goalsConceded = team.HomeMatches.Sum(m => m.AwayGoals)
+                                   + team.AwayMatches.Sum(m => m.HomeGoals);
+
+                int homePoints = team.HomeMatches.Sum(m =>
+                    m.HomeGoals > m.AwayGoals ? 3 :
+                    m.HomeGoals == m.AwayGoals ? 1 : 0);
+
+                int awayPoints = team.AwayMatches.Sum(m =>
+                    m.AwayGoals > m.HomeGoals ? 3 :
+                    m.AwayGoals == m.HomeGoals ? 1 : 0);
+
+                int points = homePoints + awayPoints;
+
+                return new TeamListItemModel
+                {
+                    Id = team.Id,
+                    Name = team.Name,
+                    LeagueName = team.League.Name,
+                    Points = points,
+                    GoalsScored = goalsScored,
+                    GoalsConceded = goalsConceded
+                };
+            });
         }
 
         public async Task<TeamFormModel> GetCreateModelAsync()
@@ -148,23 +171,48 @@ namespace FootballStatistics.Services
         public async Task<bool> ExistsAsync(int id)
             => await dbContext.Teams.AnyAsync(t => t.Id == id);
 
+
         public async Task<TeamDetailsViewModel?> GetDetailsAsync(int id)
         {
-            return await dbContext.Teams
+            var team = await dbContext.Teams
                 .AsNoTracking()
-                .Where(t => t.Id == id)
-                .Select(t => new TeamDetailsViewModel
-                {
-                    Id = t.Id,
-                    Name = t.Name,
-                    LeagueName = t.League.Name,
-                    Points = t.Points,
-                    GoalsScored = t.GoalsScored,
-                    GoalsConceded = t.GoalsConceded,
-                    StadiumName = t.Stadium != null ? t.Stadium.Name : null
+                .Include(t => t.League)
+                .Include(t => t.Stadium)
+                .Include(t => t.HomeMatches)
+                .Include(t => t.AwayMatches)
+                .FirstOrDefaultAsync(t => t.Id == id);
 
-                })
-                .FirstOrDefaultAsync();
+            if (team == null)
+            {
+                return null;
+            }
+
+            int goalsScored = team.HomeMatches.Sum(m => m.HomeGoals)
+                             + team.AwayMatches.Sum(m => m.AwayGoals);
+
+            int goalsConceded = team.HomeMatches.Sum(m => m.AwayGoals)
+                               + team.AwayMatches.Sum(m => m.HomeGoals);
+
+            int homePoints = team.HomeMatches.Sum(m =>
+                m.HomeGoals > m.AwayGoals ? 3 :
+                m.HomeGoals == m.AwayGoals ? 1 : 0);
+
+            int awayPoints = team.AwayMatches.Sum(m =>
+                m.AwayGoals > m.HomeGoals ? 3 :
+                m.AwayGoals == m.HomeGoals ? 1 : 0);
+
+            int points = homePoints + awayPoints;
+
+            return new TeamDetailsViewModel
+            {
+                Id = team.Id,
+                Name = team.Name,
+                LeagueName = team.League.Name,
+                Points = points,
+                GoalsScored = goalsScored,
+                GoalsConceded = goalsConceded,
+                StadiumName = team.Stadium != null ? team.Stadium.Name : null
+            };
         }
 
         private async Task<IEnumerable<LeagueDropdownModel>> GetLeaguesAsync()

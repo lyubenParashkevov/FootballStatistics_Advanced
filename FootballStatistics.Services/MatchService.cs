@@ -63,6 +63,8 @@ namespace FootballStatistics.Services
             };
         }
 
+     
+
         public async Task CreateAsync(MatchFormModel model)
         {
             if (model.HomeTeamId == null || model.AwayTeamId == null)
@@ -74,14 +76,21 @@ namespace FootballStatistics.Services
             {
                 throw new InvalidOperationException("Home team and away team cannot be the same.");
             }
-        
 
-            bool homeExists = await dbContext.Teams.AnyAsync(t => t.Id == model.HomeTeamId.Value);
-            bool awayExists = await dbContext.Teams.AnyAsync(t => t.Id == model.AwayTeamId.Value);
+            var homeTeam = await dbContext.Teams
+                .FirstOrDefaultAsync(t => t.Id == model.HomeTeamId.Value);
 
-            if (!homeExists || !awayExists)
+            var awayTeam = await dbContext.Teams
+                .FirstOrDefaultAsync(t => t.Id == model.AwayTeamId.Value);
+
+            if (homeTeam == null || awayTeam == null)
             {
                 throw new InvalidOperationException("Selected team does not exist.");
+            }
+
+            if (homeTeam.LeagueId != awayTeam.LeagueId)
+            {
+                throw new InvalidOperationException("Teams must be from the same league.");
             }
 
             var match = new Match
@@ -143,7 +152,26 @@ namespace FootballStatistics.Services
 
             if (model.HomeTeamId == model.AwayTeamId)
                 throw new InvalidOperationException("Home and Away teams cannot be the same.");
-        
+
+            var homeTeam = await dbContext.Teams
+                .FirstOrDefaultAsync(t => t.Id == model.HomeTeamId.Value);
+
+            var awayTeam = await dbContext.Teams
+                .FirstOrDefaultAsync(t => t.Id == model.AwayTeamId.Value);
+
+
+            if (homeTeam == null || awayTeam == null)
+            {
+                throw new InvalidOperationException("Selected team does not exist.");
+            }
+
+            if (homeTeam.LeagueId != awayTeam.LeagueId)
+            {
+                throw new InvalidOperationException("Teams must be from the same league.");
+            }
+
+
+
 
             match.HomeTeamId = model.HomeTeamId.Value;
             match.AwayTeamId = model.AwayTeamId.Value;

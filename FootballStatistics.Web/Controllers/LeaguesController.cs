@@ -16,6 +16,7 @@ namespace FootballStatistics.Controllers
             this.leagueService = leagueService;
         }
 
+        [HttpGet]
         [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
@@ -44,7 +45,7 @@ namespace FootballStatistics.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        [AllowAnonymous]
+       
         public async Task<IActionResult> Details(int id)
         {
             var model = await leagueService.GetDetailsAsync(id);

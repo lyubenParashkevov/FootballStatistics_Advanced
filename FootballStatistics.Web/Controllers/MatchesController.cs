@@ -16,6 +16,7 @@ namespace FootballStatistics.Controllers
             this.matchService = matchService;
         }
 
+        [HttpGet]
         [AllowAnonymous]
         public async Task<IActionResult> Index()
         {

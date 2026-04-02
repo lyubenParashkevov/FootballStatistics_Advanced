@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FootballStatistics.Web.Controllers
 {
+    [Authorize]
     public class StadiumsController : Controller
     {
         private readonly IStadiumService stadiumService;
@@ -16,6 +17,7 @@ namespace FootballStatistics.Web.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             var model = await stadiumService.GetAllAsync();

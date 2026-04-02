@@ -122,7 +122,7 @@ namespace FootballStatistics.Controllers
 
         }
 
-        [AllowAnonymous]
+        
         public async Task<IActionResult> Details(int id)
         {
             var model = await teamService.GetDetailsAsync(id);

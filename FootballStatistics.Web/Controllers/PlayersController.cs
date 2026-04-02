@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FootballStatistics.Web.Controllers
 {
+    [Authorize]
     public class PlayersController : Controller
     {
         private readonly IPlayerService playerService;
@@ -16,6 +17,7 @@ namespace FootballStatistics.Web.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> Index(string? searchTerm, PlayerPosition? position, int page = 1)
         {
             var model = await playerService.GetAllAsync(searchTerm, position, page);

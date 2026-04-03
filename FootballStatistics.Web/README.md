@@ -1,57 +1,94 @@
-﻿# FootballStatistics
+﻿
+⚽ FootballStatistics
+📌 Overview
 
+FootballStatistics is a web application built with ASP.NET Core MVC that allows users to explore football leagues, teams, players, stadiums, and matches.
 
-FootballStatistics is an ASP.NET Core MVC web application for managing football leagues, teams, and matches.  
-The project demonstrates the fundamentals of ASP.NET Core, Entity Framework Core, MVC architecture, Dependency Injection, and data validation.
+The application provides role-based access:
 
----
+Guests can browse basic information
+Registered users can view detailed data and standings
+Administrators can manage all entities
+🚀 Technologies Used
+ASP.NET Core MVC (.NET 6+)
+Entity Framework Core
+SQL Server
+ASP.NET Core Identity
+Bootstrap
+🧱 Architecture
 
-## 📌 Project Overview
+The project follows a layered architecture:
 
-The application allows registered users to:
+Web – Controllers and Views (UI)
+Services – Business logic
+Data – DbContext, entities, migrations
+ViewModels – Data transfer between layers
+Common – Constants and shared logic
+📊 Features
+Public (Guest)
+View lists of:
+Leagues
+Teams
+Players
+Matches
+Stadiums
+Registered Users
+View:
+Details pages
+League standings
+Administrator
+Full CRUD operations:
+Create
+Edit
+Delete
+Access to Admin Area dashboard
+🔐 Authentication & Authorization
+ASP.NET Core Identity is used
+Roles:
+Administrator
+User
+Access is restricted using [Authorize] and role-based policies
+⚙️ Business Logic
+Match Restrictions
+Matches can only be created between teams from the same league
+Team Statistics
+Points and goals are calculated dynamically from match results
+This ensures consistent and accurate standings
+🧪 Testing
 
-- Create and manage football leagues
-- Create and manage teams within leagues
-- Create and manage matches between teams
-- View detailed statistics for leagues, teams, and matches
+Unit tests are implemented using:
 
-The project follows a layered architecture structure (Core, Infrastructure, Web) and applies SOLID principles and clean code practices.
+xUnit
+EF Core InMemory Database
 
----
+Tested services:
 
-## 🛠 Technologies Used
+LeagueService
+PlayerService
+StadiumService
+TeamService
+MatchService
+⚠️ Error Handling
 
-- ASP.NET Core (.NET 8)
-- ASP.NET Core MVC
-- Entity Framework Core
-- SQL Server
-- ASP.NET Core Identity
-- Razor Views
-- Bootstrap 5
-- Dependency Injection
-- Asynchronous Programming (async/await)
+Custom error pages are implemented:
 
----
+404 – Page Not Found
+500 – Server Error
+🛠️ Setup Instructions
+Clone the repository
+Open the solution in Visual Studio
+Update the database:
+Update-Database
+Run the project
+🔑 Default Admin Account
+Email: admin@footballstatistics.com
+Password: Admin123!
+🌐 Deployment
 
-## 🏗 Architecture
+The application can be deployed to platforms such as:
 
-The project is structured in logical layers:
-
-- **Core**
-  - Service interfaces (Contracts)
-  - Service implementations
-  - Validation constants
-
-- **Infrastructure**
-  - Entity models
-  - DbContext
-  - Entity configurations (Fluent API)
-  - Migrations
-
-- **Web**
-  - Controllers
-  - ViewModels
-  - Razor Views
-  - Identity area
-
-This structure ensures separation of concerns and maintainability.
+Azure App Service
+IIS
+📌 Notes
+The application is designed for educational purposes
+Focus is on clean architecture, validation, and role-based access

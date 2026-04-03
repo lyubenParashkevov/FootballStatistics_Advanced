@@ -62,6 +62,9 @@ namespace FootballStatistics.Web
             {
                 var services = scope.ServiceProvider;
 
+                var dbContext = services.GetRequiredService<FootballStatisticsDbContext>();
+                dbContext.Database.Migrate();
+
                 var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
                 var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
 

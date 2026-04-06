@@ -123,7 +123,7 @@ Custom error pages are implemented:
 
 ## 🌐 Live Demo
 
-👉 https://footballstatistics-lyuben-fahdgxehgczebybe.westeurope-01.azurewebsites.net/
+👉 https://footballstatistics-lyuben-fahdgxehgzcebybe.westeurope-01.azurewebsites.net/
 
 ---
 

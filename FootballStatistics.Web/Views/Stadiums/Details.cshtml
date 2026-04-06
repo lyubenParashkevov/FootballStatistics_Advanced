@@ -1,26 +1,49 @@
-﻿@model FootballStatistics.Web.ViewModels.ViewModels.Stadium.StadiumDetailsViewModel
+﻿
+
+@model FootballStatistics.Web.ViewModels.ViewModels.Stadium.StadiumDetailsViewModel
 
 @{
     ViewData["Title"] = "Stadium Details";
 }
 
-<h2>@Model.Name</h2>
+<h2 class="text-center page-title">@Model.Name</h2>
+<hr />
 
-<li class="list-group-item"><strong>Name:</strong> @Model.Name</li>
-<li class="list-group-item"><strong>City:</strong> @Model.City</li>
-<li class="list-group-item"><strong>Capacity:</strong> @Model.Capacity</li>
+<div class="glass-card mb-3">
 
-</ul>
+    <ul class="list-group custom-list-group mb-3">
 
-<div class="card p-3">
-    <p><strong>City:</strong> @Model.City</p>
-    <p><strong>Capacity:</strong> @Model.Capacity</p>
-    <p><strong>Team:</strong> @(Model.TeamName ?? "No team assigned")</p>
+        <li class="list-group-item">
+            <strong>City:</strong> @Model.City
+        </li>
+
+        <li class="list-group-item">
+            <strong>Capacity:</strong> @Model.Capacity
+        </li>
+
+        <li class="list-group-item">
+            <strong>Team:</strong> @(Model.TeamName ?? "No team assigned")
+        </li>
+
+    </ul>
+
+    <div class="d-flex justify-content-center gap-2 flex-wrap">
+
+        @if (User.IsInRole("Administrator"))
+        {
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">
+                Edit
+            </a>
+
+            <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">
+                Delete
+            </a>
+        }
+
+        <a asp-action="Index" class="btn btn-secondary">
+            Back
+        </a>
+
+    </div>
+
 </div>
-
-@if (User.IsInRole("Administrator"))
-{
-    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>
-    <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Delete</a>
-}
-<a asp-action="Index"  class="btn btn-secondary btn-sm">Back</a>

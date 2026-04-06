@@ -24,8 +24,8 @@ body {
 
 
 body {
-    background-color: deepskyblue;
-    color: white;
+    background: url('/images/soccer-stadium-night.jpg') no-repeat center center fixed;
+    background-size: cover;
 }
 
 .navbar {
@@ -37,7 +37,53 @@ body {
     border-color: #16a34a;
 }
 
+
 .table {
-    background-color: white;
-    color: black;
+    background-color: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(10px);
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.table thead {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.table {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+h1, h2, h3 {
+    color: lightgrey;
+}
+
+.page-title,
+.page-subtitle {
+    color: #f8f9fa;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.glass-card {
+    background-color: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.custom-list-group {
+    background: transparent;
+}
+
+    .custom-list-group .list-group-item {
+        background-color: rgba(255, 255, 255, 0.55);
+        color: #111;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+    }
+
+.details-text {
+    color: #f8f9fa;
 }

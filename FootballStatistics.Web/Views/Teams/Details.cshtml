@@ -1,28 +1,59 @@
-﻿@using FootballStatistics.ViewModels.Teams
+﻿
 
+@using FootballStatistics.ViewModels.Teams
 @model TeamDetailsViewModel
 
 @{
     ViewData["Title"] = "Team Details";
 }
 
-<h2 class="text-center">@ViewData["Title"]</h2>
+<h2 class="text-center page-title">@Model.Name</h2>
 <hr />
 
-<ul class="list-group">
-    <li class="list-group-item"><strong>Name:</strong> @Model.Name</li>
-    <li class="list-group-item"><strong>League:</strong> @Model.LeagueName</li>
-    <li class="list-group-item"><strong>Points:</strong> @Model.Points</li>
-    <li class="list-group-item"><strong>Goals Scored:</strong> @Model.GoalsScored</li>
-    <li class="list-group-item"><strong>Goals Conceded:</strong> @Model.GoalsConceded</li>
-    <li class="list-group-item"><strong>Stadium:</strong> @(Model.StadiumName ?? "No stadium assigned")</li>
-</ul>
+<div class="glass-card mb-3">
 
-<div class="mt-3">
-    @if (User.IsInRole("Administrator"))
-    {
-        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>
-        <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Delete</a>
-    }
-    <a asp-action="Index" class="btn btn-secondary">Back</a>
+    <ul class="list-group custom-list-group mb-3">
+
+        <li class="list-group-item">
+            <strong>League:</strong> @Model.LeagueName
+        </li>
+
+        <li class="list-group-item">
+            <strong>Points:</strong>
+            <span class="fw-bold fs-5">@Model.Points</span>
+        </li>
+
+        <li class="list-group-item">
+            <strong>Goals Scored:</strong> @Model.GoalsScored
+        </li>
+
+        <li class="list-group-item">
+            <strong>Goals Conceded:</strong> @Model.GoalsConceded
+        </li>
+
+        <li class="list-group-item">
+            <strong>Stadium:</strong> @(Model.StadiumName ?? "No stadium assigned")
+        </li>
+
+    </ul>
+
+    <div class="d-flex justify-content-center gap-2 flex-wrap">
+
+        @if (User.IsInRole("Administrator"))
+        {
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">
+                Edit
+            </a>
+
+            <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">
+                Delete
+            </a>
+        }
+
+        <a asp-action="Index" class="btn btn-secondary">
+            Back
+        </a>
+
+    </div>
+
 </div>

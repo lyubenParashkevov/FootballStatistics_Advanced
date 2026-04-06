@@ -1,40 +1,48 @@
-﻿@using FootballStatistics.ViewModels.League
+﻿
+
+@using FootballStatistics.ViewModels.League
 @model LeagueDetailsViewModel
 
 @{
     ViewData["Title"] = "League Details";
 }
 
-<h2 class="text-center">@ViewData["Title"]</h2>
+<h2 class="text-center page-title">@ViewData["Title"]</h2>
 <hr />
 
-<ul class="list-group mb-3">
-    <li class="list-group-item"><strong>Name:</strong> @Model.Name</li>
-    <li class="list-group-item"><strong>Country:</strong> @Model.Country</li>
-</ul>
-
-<h4>Teams</h4>
-@if (!Model.Teams.Any())
-{
-    <p>No teams yet.</p>
-}
-else
-{
-    <ul class="list-group">
-        @foreach (var teamName in Model.Teams)
-        {
-            <li class="list-group-item">@teamName</li>
-        }
+<div class="glass-card mb-3">
+    <ul class="list-group custom-list-group mb-3">
+        <li class="list-group-item"><strong>Name:</strong> @Model.Name</li>
+        <li class="list-group-item"><strong>Country:</strong> @Model.Country</li>
     </ul>
-}
-<div class="mt-3">
-    @if (User.IsInRole("Administrator"))
+
+    <h4 class="page-subtitle">Teams</h4>
+
+    @if (!Model.Teams.Any())
     {
-        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>
-        <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Delete</a>
+        <p class="details-text">No teams yet.</p>
     }
-    <a asp-action="Index" class="btn btn-secondary">Back</a>
-    <a asp-controller="Leagues" asp-action="Standings" asp-route-id="@Model.Id" class="btn btn-outline-primary">
-        Standings
-    </a>
+    else
+    {
+        <ul class="list-group custom-list-group">
+            @foreach (var teamName in Model.Teams)
+            {
+                <li class="list-group-item">@teamName</li>
+            }
+        </ul>
+    }
+
+    <div class="mt-3 d-flex gap-2 flex-wrap">
+        @if (User.IsInRole("Administrator"))
+        {
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>
+            <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Delete</a>
+        }
+
+        <a asp-action="Index" class="btn btn-secondary">Back</a>
+
+        <a asp-controller="Leagues" asp-action="Standings" asp-route-id="@Model.Id" class="btn btn-primary">
+            Standings
+        </a>
+    </div>
 </div>

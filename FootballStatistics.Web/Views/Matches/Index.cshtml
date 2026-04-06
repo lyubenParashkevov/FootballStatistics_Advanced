@@ -44,3 +44,9 @@
         }
     </tbody>
 </table>
+@if (User.IsInRole("Administrator"))
+{
+    <a asp-controller="Admin" asp-action="Index" class="btn btn-secondary">
+        ← Back to Admin
+    </a>
+}

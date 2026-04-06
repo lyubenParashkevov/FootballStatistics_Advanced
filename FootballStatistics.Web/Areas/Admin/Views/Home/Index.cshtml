@@ -1,38 +1,36 @@
-﻿@{
-    ViewData["Title"] = "Admin Dashboard";
-}
+﻿
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Admin Dashboard</h2>
+    <hr />
+    <div class="row g-3 justify-content-center">
+        <div class="col-md-4">
+            <a asp-area="" asp-controller="Leagues" asp-action="Index" class="btn btn-success w-100 py-3">
+                Manage Leagues
+            </a>
+        </div>
 
-<h2 class="text-center">@ViewData["Title"]</h2>
-<hr />
+        <div class="col-md-4">
+            <a asp-area="" asp-controller="Teams" asp-action="Index" class="btn btn-success w-100 py-3">
+                Manage Teams
+            </a>
+        </div>
 
-<div class="row g-3">
-    <div class="col-md-4">
-        <a asp-area="" asp-controller="Leagues" asp-action="Index" class="btn btn-primary w-100">
-            Manage Leagues
-        </a>
-    </div>
+        <div class="col-md-4">
+            <a asp-area="" asp-controller="Players" asp-action="Index" class="btn btn-success w-100 py-3">
+                Manage Players
+            </a>
+        </div>
 
-    <div class="col-md-4">
-        <a asp-area="" asp-controller="Teams" asp-action="Index" class="btn btn-primary w-100">
-            Manage Teams
-        </a>
-    </div>
+        <div class="col-md-4">
+            <a asp-area="" asp-controller="Stadiums" asp-action="Index" class="btn btn-success w-100 py-3">
+                Manage Stadiums
+            </a>
+        </div>
 
-    <div class="col-md-4">
-        <a asp-area="" asp-controller="Players" asp-action="Index" class="btn btn-primary w-100">
-            Manage Players
-        </a>
-    </div>
-
-    <div class="col-md-4">
-        <a asp-area="" asp-controller="Stadiums" asp-action="Index" class="btn btn-primary w-100">
-            Manage Stadiums
-        </a>
-    </div>
-
-    <div class="col-md-4">
-        <a asp-area="" asp-controller="Matches" asp-action="Index" class="btn btn-primary w-100">
-            Manage Matches
-        </a>
+        <div class="col-md-4">
+            <a asp-area="" asp-controller="Matches" asp-action="Index" class="btn btn-success w-100 py-3">
+                Manage Matches
+            </a>
+        </div>
     </div>
 </div>

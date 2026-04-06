@@ -120,8 +120,8 @@ namespace FootballStatistics.Web
                 }
             }
 
-            string adminEmail = "admin@footballstatistics.com";
-            string adminPassword = "Admin123!";
+            string adminEmail = "admin@fsapp.com";
+            string adminPassword = "Admin!2026Sec!";
 
             var adminUser = await userManager.FindByEmailAsync(adminEmail);
 

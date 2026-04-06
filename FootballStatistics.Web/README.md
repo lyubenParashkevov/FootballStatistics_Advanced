@@ -129,8 +129,8 @@ Custom error pages are implemented:
 
 ## 🔐 Default Admin Account
 
-Email: admin@footballstatistics.com  
-Password: Admin123!  
+Email: admin@fsapp.com  
+Password: Admin!2026Sec!  
 
 ---
 

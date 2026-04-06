@@ -4,7 +4,9 @@
     ViewData["Title"] = "Stadiums";
 }
 
-<h2>@ViewData["Title"]</h2>
+
+<h2 class="text-center">@ViewData["Title"]</h2>
+<hr />
 
 @if (User.IsInRole("Administrator"))
 {
@@ -34,3 +36,9 @@
         }
     </tbody>
 </table>
+@if (User.IsInRole("Administrator"))
+{
+    <a asp-controller="Admin" asp-action="Index" class="btn btn-secondary">
+        ← Back to Admin
+    </a>
+}

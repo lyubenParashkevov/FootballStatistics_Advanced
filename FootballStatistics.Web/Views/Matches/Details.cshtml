@@ -1,51 +1,57 @@
-﻿@model FootballStatistics.Web.ViewModels.ViewModels.Match.MatchDetailsViewModel
+﻿
+
+@model FootballStatistics.Web.ViewModels.ViewModels.Match.MatchDetailsViewModel
 
 @{
     ViewData["Title"] = "Match Details";
 }
 
-<h2 class="text-center">@ViewData["Title"]</h2>
+<h2 class="text-center page-title">@ViewData["Title"]</h2>
 <hr />
 
-<ul class="list-group mb-3">
+<div class="glass-card mb-3">
 
-    <li class="list-group-item">
-        <strong>Home Team:</strong> @Model.HomeTeamName
-    </li>
+    <ul class="list-group custom-list-group mb-3">
 
-    <li class="list-group-item">
-        <strong>Away Team:</strong> @Model.AwayTeamName
-    </li>
+        <li class="list-group-item">
+            <strong>Home Team:</strong> @Model.HomeTeamName
+        </li>
 
-    <li class="list-group-item">
-        <strong>Result:</strong> @Model.HomeGoals : @Model.AwayGoals
-    </li>
+        <li class="list-group-item">
+            <strong>Away Team:</strong> @Model.AwayTeamName
+        </li>
 
-    <li class="list-group-item">
-        <strong>Date:</strong> @Model.MatchDate.ToString("dd MMM yyyy")
-    </li>
+        <li class="list-group-item">
+            <strong>Result:</strong> @Model.HomeGoals : @Model.AwayGoals
+        </li>
 
-    <li class="list-group-item">
-        <strong>Stadium:</strong> @Model.Stadium
-    </li>
+        <li class="list-group-item">
+            <strong>Date:</strong> @Model.MatchDate.ToString("dd MMM yyyy")
+        </li>
 
-</ul>
+        <li class="list-group-item">
+            <strong>Stadium:</strong> @Model.Stadium
+        </li>
 
-<div class="text-center">
+    </ul>
 
-    @if (User.IsInRole("Administrator"))
-    {
-        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning me-2">
-            Edit
+    <div class="d-flex justify-content-center gap-2 flex-wrap">
+
+        @if (User.IsInRole("Administrator"))
+        {
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">
+                Edit
+            </a>
+
+            <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">
+                Delete
+            </a>
+        }
+
+        <a asp-action="Index" class="btn btn-secondary">
+            Back
         </a>
 
-        <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger me-2">
-            Delete
-        </a>
-    }
-
-    <a asp-action="Index" class="btn btn-secondary">
-        Back
-    </a>
+    </div>
 
 </div>

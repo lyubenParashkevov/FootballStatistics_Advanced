@@ -38,13 +38,28 @@ namespace FootballStatistics.Controllers
         public async Task<IActionResult> Create(TeamFormModel model)
         {
             if (!ModelState.IsValid)
-            {          
+            {
                 model.Leagues = (await teamService.GetCreateModelAsync()).Leagues;
                 return View(model);
             }
 
-            await teamService.CreateAsync(model);
-            return RedirectToAction(nameof(Index));
+            try
+            {
+                await teamService.CreateAsync(model);
+                return RedirectToAction(nameof(Index));
+            }
+            catch (InvalidOperationException ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+
+                var createModel = await teamService.GetCreateModelAsync();
+                model.Leagues = createModel.Leagues;
+                
+
+                return View(model);
+            }
+
+
         }
 
         [Authorize(Roles = ApplicationRoles.Administrator)]
@@ -122,7 +137,7 @@ namespace FootballStatistics.Controllers
 
         }
 
-        
+
         public async Task<IActionResult> Details(int id)
         {
             var model = await teamService.GetDetailsAsync(id);

@@ -39,6 +39,14 @@ namespace FootballStatistics.Services
                 Country = model.Country
             };
 
+            bool exists = await dbContext.Leagues
+                    .AnyAsync(l => l.Name == model.Name && l.Country == model.Country);
+
+            if (exists)
+            {
+                throw new InvalidOperationException("League already exists.");
+            }
+
             await dbContext.Leagues.AddAsync(league);
             await dbContext.SaveChangesAsync();
         }

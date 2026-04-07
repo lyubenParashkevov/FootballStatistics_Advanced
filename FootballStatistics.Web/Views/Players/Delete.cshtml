@@ -4,10 +4,12 @@
     ViewData["Title"] = "Delete Player";
 }
 
-<h2 class="text-center">Delete Player</h2>
+<h2 class="text-center text-danger">Delete Player</h2>
 <hr />
 
-<h4 class="text-center">Are you sure you want to delete @Model.Name?</h4>
+<h4 class="text-center text-light">
+    Are you sure you want to delete @Model.Name?
+</h4>
 
 <div class="text-center mt-3">
     <form asp-action="Delete" method="post">

@@ -103,6 +103,13 @@ namespace FootballStatistics.Services
                 throw new InvalidOperationException("Selected league does not exist.");
             }
 
+            bool exists = await dbContext.Teams.AnyAsync(t => t.Name == model.Name && t.LeagueId == model.LeagueId);
+
+            if (exists)
+            {
+                throw new InvalidOperationException("Team already exists.");
+            }
+
 
             var team = new Team
             {
@@ -112,6 +119,8 @@ namespace FootballStatistics.Services
                 LeagueId = model.LeagueId.Value,
                 Points = 0
             };
+
+
 
             await dbContext.Teams.AddAsync(team);
             await dbContext.SaveChangesAsync();

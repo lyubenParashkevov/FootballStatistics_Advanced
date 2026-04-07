@@ -22,6 +22,9 @@
              class="img-fluid rounded shadow"
              style="max-width: 300px;" />
     </div>
+    @if (!User.Identity.IsAuthenticated)
+{
     <h3 class="display-4">Sign In For More Details!</h3>
+}
 
 </div>

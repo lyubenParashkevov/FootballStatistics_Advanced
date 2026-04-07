@@ -56,8 +56,17 @@ namespace FootballStatistics.Web.Controllers
                 return View(model);
             }
 
-            await stadiumService.CreateAsync(model);
-            return RedirectToAction(nameof(Index));
+            try
+            {
+                await stadiumService.CreateAsync(model);
+                return RedirectToAction(nameof(Index));
+            }
+            catch (InvalidOperationException ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+                model.Teams = (await stadiumService.GetCreateModelAsync()).Teams;
+                return View(model);
+            }
         }
 
         [Authorize(Roles = ApplicationRoles.Administrator)]
@@ -92,8 +101,10 @@ namespace FootballStatistics.Web.Controllers
                 return NotFound();
             }
 
-            return RedirectToAction(nameof(Details), new { id });
+            return RedirectToAction(nameof(Index), new { id });
         }
+
+
 
         [Authorize(Roles = ApplicationRoles.Administrator)]
         [HttpGet]

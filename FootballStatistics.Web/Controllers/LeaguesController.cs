@@ -28,6 +28,8 @@ namespace FootballStatistics.Controllers
         [HttpGet]
         public IActionResult Create()
         {
+
+
             return View(new LeagueFormModel());
         }
 
@@ -41,8 +43,16 @@ namespace FootballStatistics.Controllers
                 return View(model);
             }
 
-            await leagueService.CreateAsync(model);
-            return RedirectToAction(nameof(Index));
+            try
+            {
+                await leagueService.CreateAsync(model);
+                return RedirectToAction(nameof(Index));
+            }
+            catch (InvalidOperationException ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+                return View(model);
+            }
         }
 
        
@@ -77,13 +87,29 @@ namespace FootballStatistics.Controllers
                 return View(model);
             }
 
-            bool updated = await leagueService.UpdateAsync(id, model);
-            if (!updated)
-            {
-                return NotFound();
-            }
+            //bool updated = await leagueService.UpdateAsync(id, model);
+            //if (!updated)
+            //{
+            //    return NotFound();
+            //}
 
-            return RedirectToAction(nameof(Index));
+            //return RedirectToAction(nameof(Index));
+
+            try
+            {
+                bool updated = await leagueService.UpdateAsync(id, model);
+                if (!updated)
+                {
+                    return NotFound();
+                }
+
+                return RedirectToAction(nameof(Index));
+            }
+            catch (InvalidOperationException ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+                return View(model);
+            }
         }
 
         [Authorize(Roles = ApplicationRoles.Administrator)]

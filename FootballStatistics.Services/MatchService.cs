@@ -93,6 +93,16 @@ namespace FootballStatistics.Services
                 throw new InvalidOperationException("Teams must be from the same league.");
             }
 
+            bool exists = await dbContext.Matches
+                .AnyAsync(m => m.HomeTeamId == model.HomeTeamId
+                && m.AwayTeamId == model.AwayTeamId
+                && m.MatchDate == model.MatchDate);
+
+            if (exists)
+            {
+                throw new InvalidOperationException("Match already exists.");
+            }
+
             var match = new Match
             {
                 HomeTeamId = model.HomeTeamId.Value,

@@ -87,6 +87,14 @@ namespace FootballStatistics.Services
 
             };
 
+            bool exists = await this.dbContext.Players
+                      .AnyAsync(p => p.Name == model.Name && p.TeamId == model.TeamId);
+
+            if (exists)
+            {
+                throw new InvalidOperationException("Player already exists in this team.");
+            }
+
             await dbContext.Players.AddAsync(player);
             await dbContext.SaveChangesAsync();
         }

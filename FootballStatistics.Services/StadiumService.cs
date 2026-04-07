@@ -56,7 +56,15 @@ namespace FootballStatistics.Services
                     Capacity = model.Capacity
                 };
 
-                await dbContext.Stadiums.AddAsync(stadium);
+            bool exists = await dbContext.Stadiums
+                    .AnyAsync(s => s.Name == model.Name && s.City == model.City);
+
+            if (exists)
+            {
+                throw new InvalidOperationException("Stadium already exists.");
+            }
+
+            await dbContext.Stadiums.AddAsync(stadium);
                 await dbContext.SaveChangesAsync();
 
                 Team? team = await dbContext.Teams.FirstOrDefaultAsync(t => t.Id == model.TeamId);
